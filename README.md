@@ -28,6 +28,11 @@ chmod a+x filename.AppImage
 ./filename.AppImage
 ```
 
+- Run Balena Etcher
+- Plug in SD-card
+- Flash
+- Plug SD-card into RPI
+
 ### Generate ssh-keypair:
 For more security, we will generate a ssh-keypair, install the public key on remote computer and disable password login.
 
