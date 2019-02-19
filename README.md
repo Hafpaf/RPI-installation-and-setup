@@ -1,5 +1,5 @@
 # RPI-installation-and-setup
-SSH-Key encryption, installation and setup for Raspberry PI
+SSH-Key generation + installation and setup for Raspberry PI
 
 This guide was made for myself, but can of course help others.
 
@@ -29,6 +29,8 @@ chmod a+x filename.AppImage
 ```
 
 ### Generate ssh-keypair:
+For more security, we will generate a ssh-keypair, install the public key on remote computer and disable password login.
+
 Guide followed: [https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/ "Generate SSH-keypair")
 
 ```bash
@@ -46,45 +48,73 @@ ssh-add ~/.ssh/filename
 ```
 
 ### Enable SSH on headless boot
-https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
-Add a file called "ssh" with no filetype on root folder of boot partion.
+[https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md "Enable SSH")
+
+Create a file called `ssh` with no filetype, at the root folder of boot partion.
 
 ### Boot RPI
-Plug in LAN cable to router and PI
-Plug in power
+- Plug in LAN cable to router and PI
+- Plug in power
 
 ### SSH over to RPI
-- ssh pi@ip_address
-- Password: raspberry
-NOTE: Add the ip to known host by typing "yes"
+```bash
+ssh pi@host
+Password: raspberry
+```
+Find IP adress of the RPI by logging in to your router.
+
+Default password is `raspberry` and will be changed.
+
+Add the ip to known host by typing `yes`
 
 ### Change Password
-- passwd
+`passwd`
 
 ### Add user
-https://www.raspberrypi.org/documentation/linux/usage/users.md
-- sudo adduser user_name
+[https://www.raspberrypi.org/documentation/linux/usage/users.md](https://www.raspberrypi.org/documentation/linux/usage/users.md "Add user")
+```bash
+sudo adduser user_name
+```
 
 ### Add ssh-key for passwordless login:
-https://www.ssh.com/ssh/copy-id
-Exit the ssh session with "exit"
-- ssh-copy-id -i ~/.ssh/rpi.pub user@host
+[https://www.ssh.com/ssh/copy-id](https://www.ssh.com/ssh/copy-id "Copy public key to RPI")
+
+Exit the ssh session with `exit`
+
+```bash
+ssh-copy-id -i ~/.ssh/rpi.pub user@host
+```
 Test key
-- ssh -i ~/.ssh/rpi.pub user@host
+```bash
+ssh -i ~/.ssh/rpi.pub user@host
+```
 
 ### Disable password login
-- sudo nano /etc/ssh/sshd_config
-Find "#PasswordAuthentication yes"
-Change to "PasswordAuthentication no"
-- sudo service ssh restart
+SSH over to RPI
 
-### Update the rpi
-- sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y; apt-get autoclean -y'
-- sudo reboot
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+Change `#PasswordAuthentication yes` to `PasswordAuthentication no`
 
+Restart ssh service on RPI
+```bash
+sudo service ssh restart
+```
+
+### Update the RPI
+```bash
+sudo -- sh -c 'apt-get update; apt-get upgrade -y; apt-get dist-upgrade -y; apt-get autoremove -y; apt-get autoclean -y'
+sudo reboot
+```
+## Extra
 ### Install Pi-Hole
-https://github.com/pi-hole/pi-hole/#one-step-automated-install
-- curl -sSL https://pi-hole.net | bash
+[https://github.com/pi-hole/pi-hole/#one-step-automated-install](https://github.com/pi-hole/pi-hole/#one-step-automated-install "Install Pi-Hole")
+
+´´´bash
+curl -sSL https://pi-hole.net | bash
+´´´
+> Change DNS server on Router or each device to the ip adress of the RPI
 
 ## Credits
-Written with help of this [cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+Written with help of this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
