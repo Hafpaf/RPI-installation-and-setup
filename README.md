@@ -1,31 +1,49 @@
 # RPI-installation-and-setup
-Installation and setup for Raspberry PI
+SSH-Key encryption, installation and setup for Raspberry PI
+
+This guide was made for myself, but can of course help others.
+
+Please note that the OS on the host computer is running Arch and may not be the exact same on your system.
 
 ## RPI Install notes
 
 ### OS
-https://www.raspberrypi.org/downloads/raspbian/
-Choose 'raspbian strech lite' for no grapics
+Download link: [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/ "Raspian download")
+
+Choose `raspbian strech lite`, to go run without grapichs and preinstalled programs.
 
 ### Check intregrity of file
-sha256sum filename.zip
+`sha256sum filename.zip`
 
 ### Flash: Balena Etcher
-https://github.com/balena-io/etcher
-- extract and run with:
-- cd Downloads
-- chmod a+x filename.AppImage
-- ./filename.AppImage
+Download link: [https://github.com/balena-io/etcher](https://github.com/balena-io/etcher "Etcher")
 
-### Generate ssh-keys:
-https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
-- ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+> NOTE: The old Etcher have changed to Balena etcher due to the company changeing names.
+
+
+Extract and run with:
+```bash
+cd Downloads
+chmod a+x filename.AppImage
+./filename.AppImage
+```
+
+### Generate ssh-keypair:
+Guide followed: [https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/ "Generate SSH-keypair")
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
 Enter a file in which to save the key (/home/you/.ssh/id_rsa):
-- /home/you/.ssh/id_rsa): filename
+```bash
+/home/you/.ssh/id_rsa): folder/path/filename
+```
 
-Add SSH-key to SSH-agent
-- eval "$(ssh-agent -s)"
-- ssh-add ~/.ssh/filename
+#### Add SSH-key to SSH-agent
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/filename
+```
 
 ### Enable SSH on headless boot
 https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
@@ -67,3 +85,6 @@ Change to "PasswordAuthentication no"
 ### Install Pi-Hole
 https://github.com/pi-hole/pi-hole/#one-step-automated-install
 - curl -sSL https://pi-hole.net | bash
+
+## Credits
+Written with help of this [cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
