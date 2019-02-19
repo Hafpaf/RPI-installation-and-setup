@@ -116,9 +116,10 @@ sudo reboot
 ### Install Pi-Hole
 [https://github.com/pi-hole/pi-hole/#one-step-automated-install](https://github.com/pi-hole/pi-hole/#one-step-automated-install "Install Pi-Hole")
 
-´´´bash
+```bash
 curl -sSL https://pi-hole.net | bash
-´´´
+```
+
 > Change DNS server on Router or each device to the ip adress of the RPI
 
 ## Credits
