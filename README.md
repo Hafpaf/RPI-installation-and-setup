@@ -122,9 +122,6 @@ curl -sSL https://pi-hole.net | bash
 
 > Change DNS server on Router or each device to the ip adress of the RPI
 
-## Credits
-Written with help of this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
 ### Give user sudo rights
 ```bash
 sudo adduser username sudo
@@ -134,3 +131,6 @@ sudo adduser username sudo
 ```bash
 sudo nano /etc/dhcpcd.conf
 ```
+
+## Credits
+Written with help of this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
