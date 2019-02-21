@@ -124,3 +124,13 @@ curl -sSL https://pi-hole.net | bash
 
 ## Credits
 Written with help of this [Markdown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+### Give user sudo rights
+```bash
+sudo adduser username sudo
+```
+
+### Set static ip
+```bash
+sudo nano /etc/dhcpcd.conf
+```
