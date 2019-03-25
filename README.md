@@ -12,10 +12,10 @@ Download link: [https://www.raspberrypi.org/downloads/raspbian/](https://www.ras
 
 Choose `raspbian strech lite`, to go run without grapichs and preinstalled programs.
 
-### Check intregrity of file
+#### Check intregrity of file
 `sha256sum filename.zip`
 
-### Flash: Balena Etcher
+#### Flash: Balena Etcher
 Download link: [https://github.com/balena-io/etcher](https://github.com/balena-io/etcher "Etcher")
 
 > NOTE: The old Etcher have changed to Balena etcher due to the company changeing names.
