@@ -10,15 +10,15 @@ Please note that the OS on the host computer is running Arch and may not be the 
 ### OS
 Download link: [https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/ "Raspian download")
 
-Choose `raspbian strech lite`, to go run without grapichs and preinstalled programs.
+Choose `raspbian stretch lite`, to go run without graphics and preinstalled programs.
 
-#### Check intregrity of file
+#### Check integrity of file
 `sha256sum filename.zip`
 
 #### Flash: Balena Etcher
 Download link: [https://github.com/balena-io/etcher](https://github.com/balena-io/etcher "Etcher")
 
-> NOTE: The old Etcher have changed to Balena etcher due to the company changeing names.
+> NOTE: The old Etcher have changed to Balena etcher due to the company changing names.
 
 
 Extract and run with:
